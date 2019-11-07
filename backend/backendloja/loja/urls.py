@@ -1,7 +1,8 @@
-from django.conf.urls import url
+from django.urls import path
 
-#from .views import ()
+from .views import (ProdutoList, CategoriaList)
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
+    path('produtos/', ProdutoList.as_view()),
+    path('categorias/', CategoriaList.as_view()),
 ]
