@@ -3,7 +3,7 @@ import Router from 'vue-router'
  
 import Index from '@/components/Index'
 import Contact from '@/components/Contact'
-import About from '@/components/About'
+import About from '@/components/ShopCart'
  
 Vue.use(Router)
  
@@ -20,8 +20,8 @@ export default new Router({
        component: Contact
    },
    {
-       path: '/About',
-       name: 'About',
+       path: '/ShopCart',
+       name: 'ShopCart',
        component: About
    }
  ]

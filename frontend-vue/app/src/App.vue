@@ -1,16 +1,19 @@
 <template>
   <div id="app">
-    <Navigation ref="drawer"></Navigation>
+    <Navigation @toggle-drawer="$refs.drawer.drawer = !$refs.drawer.drawer"></Navigation>
+    <SideMenu ref="drawer"></SideMenu>
     <router-view/>
   </div>
 </template>
 
 <script>
 import Navigation from './components/Navigation'
+import SideMenu from "@/components/SideMenu"
 export default {
   name: 'app',
   components: {
-    'Navigation': Navigation
+    'Navigation': Navigation,
+    'SideMenu': SideMenu
   }
 }
 </script>

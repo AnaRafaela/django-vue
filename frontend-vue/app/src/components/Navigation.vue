@@ -9,13 +9,13 @@
     <nav-item>
       <router-link class="spacing" v-for="routes in links" 
       v-bind:key="routes.id"
-      :to="`${routes.page}`">{{routes.text}}</router-link>
+      :to="`${routes.page}`">
+      {{routes.text}}
+      <v-list-item-icon>
+            <v-icon>{{ routes.icon }}</v-icon>
+        </v-list-item-icon>
+      </router-link>
     </nav-item>
-    <nav-iten>
-     
-      <v-icon>mdi-cart-outline</v-icon>
-    
-    </nav-iten>
   </div>
   </v-app-bar>
 </template>
@@ -34,21 +34,32 @@ export default {
         },
         {
           id: 1,
-          text: 'About',
-          page:'/About'
+          text: 'Contact',
+          page:'/Contact',
         },
         {
           id: 2,
-          text: 'Contact',
-          page:'/Contact'
+          icon:'mdi-cart-outline',
+          text: 'Carrinho',
+          page:'/ShopCart'
         }
-      ]
+      ],
     }
   }
 
 
 }
 </script>
+import eventBus from "../main"
+export default {
+  name: 'ToolBar',
+  props: ['drawer'],
+  methods: {
+    updateAppDrawer() {
+      eventBus.$emit('updateAppDrawer')
+    }
+  }
+}
 <style>
 .spacing {
   margin-right: 10px;

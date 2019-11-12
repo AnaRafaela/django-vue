@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1>Pagina qualquer...</h1>
+    <h1>Carrinho de Compras...</h1>
     <p>Em construção</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'About' //this is the name of the component
+  name: 'ShopCart' //this is the name of the component
 }
 </script>
 <style>
