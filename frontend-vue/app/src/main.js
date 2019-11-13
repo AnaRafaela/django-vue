@@ -6,6 +6,9 @@ import 'vuetify/dist/vuetify.min.css'
 import VueSession from 'vue-session'
 import Vuelidate from 'vuelidate'
 
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import 'vue-material-design-icons/styles.css'
+
  
 Vue.config.performance = true;
 Vue.config.productionTip = false;
@@ -15,10 +18,10 @@ Vue.use(Vuelidate)
  
 new Vue({
   el: "#app",
-  router,
   vuetify,
-  components: { App },
+  router,
   render: h => h(App)
 })
 
-export const EvenBus = new Vue();
+export const EventBus = new Vue();
+

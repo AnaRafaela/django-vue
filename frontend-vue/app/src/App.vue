@@ -3,17 +3,20 @@
     <Navigation @toggle-drawer="$refs.drawer.drawer = !$refs.drawer.drawer"></Navigation>
     <SideMenu ref="drawer"></SideMenu>
     <router-view/>
+    <Footer @toggle-drawer="$refs.drawer.drawer = !$refs.drawer.drawer"></Footer>
   </div>
 </template>
 
 <script>
 import Navigation from './components/Navigation'
 import SideMenu from "@/components/SideMenu"
+import Footer from "@/components/Footer"
 export default {
   name: 'app',
   components: {
     'Navigation': Navigation,
-    'SideMenu': SideMenu
+    'SideMenu': SideMenu,
+    'Footer': Footer,
   }
 }
 </script>

@@ -21,9 +21,15 @@
 </template>
 
 <script>
+import eventBus from "../main"
 export default {
   name: 'Navigation',
   props: ['drawer'],
+  methods: {
+    updateAppDrawer() {
+      eventBus.$emit('updateAppDrawer')
+    }
+  },
   data() {
     return {
       links: [
@@ -47,19 +53,8 @@ export default {
     }
   }
 
-
 }
 </script>
-import eventBus from "../main"
-export default {
-  name: 'ToolBar',
-  props: ['drawer'],
-  methods: {
-    updateAppDrawer() {
-      eventBus.$emit('updateAppDrawer')
-    }
-  }
-}
 <style>
 .spacing {
   margin-right: 10px;
