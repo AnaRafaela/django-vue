@@ -1,5 +1,5 @@
 <template>
-<v-app-bar app :clipped-left="$vuetify.breakpoint.lgAndUp" color="indigo" dark>
+<v-app-bar app :clipped-left="$vuetify.breakpoint.lgAndUp" color="purple darken-4" dark>
     <v-app-bar-nav-icon 
       @click.stop="$emit('toggle-drawer')"
     > </v-app-bar-nav-icon>
@@ -35,8 +35,8 @@ export default {
       links: [
         {
           id: 0,
-          text: 'Index',
-          page:'/Index'
+          text: 'Categoria',
+          page:'/Categoria'
         },
         {
           id: 1,

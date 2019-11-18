@@ -10,22 +10,27 @@
       </v-carousel>
 
       <h1 class="text-center">Loja Casa Bonita</h1>
-      <h3>gerérica</h3>
 
-      <v-row no-gutters>
-        <v-col>
-          <v-card class="mx-auto" max-width="400">
+      <v-row no-gutters justify="center">
+        <div v-for="produto in produtos" v-bind:key="produto.id">
+        <v-col>   
+          <v-card class="mx-auto" max-width="300" max-height="350">
             <v-img
-              height="200px"
+              height="150px"
+              width="300px"
               src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
             ></v-img>
-
-            <v-card-title>Number 10</v-card-title>
+            <v-item>
+              {{produto.foto}}
+            </v-item>
+            <v-card-title>
+              {{produto.nome}}
+              </v-card-title>
 
             <v-card-text class="text--primary">
-              <div>Whitehaven Beach</div>
+              <div>{{produto.descricao}}</div>
 
-              <div>Whitsunday Island, Whitsunday Islands</div>
+              <div>R$ {{produto.preco}}</div>
             </v-card-text>
 
             <v-card-actions>
@@ -35,16 +40,19 @@
             </v-card-actions>
           </v-card>
         </v-col>
+       </div>
       </v-row>
     </v-container>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: "Index",
   data() {
     return {
+      produtos: [],
       items: [
         {
           src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg"
@@ -60,8 +68,22 @@ export default {
         }
       ]
     };
-  }
-};
+  },
+  created() {
+        this.all();
+        },
+  methods: {
+  all () {
+   axios.request({
+    baseURL: 'http://localhost:8000',
+    method: 'get',
+    url: '/loja/produtos/'
+   }).then( response => {
+     this.produtos = response.data
+   });
+  },
+}
+}
 </script>
 <style>
 </style>

@@ -1,2 +1,2 @@
-from loja.models.produto import Produto
-from loja.models.categoria import Categoria
+from .produto import Produto
+from .categoria import Categoria

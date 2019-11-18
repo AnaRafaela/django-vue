@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       drawer: true,
-      mini: false,
+     // mini: false,
       user: {},
       items: [        
         { title: "Home", icon: "mdi-store", endpoint: '/' },
