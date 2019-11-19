@@ -42,10 +42,11 @@ export default {
         })
         .then(response => {
           this.items = response.data
-          console.log(response)
+          //console.log(response)
         });
-      }
-    }
+      },
+      
+}
 }
 </script>
 

@@ -8,24 +8,19 @@
     <v-divider></v-divider>
 
     <v-list dense>
-      <v-list-item :to="item.endpoint" v-for="item in items" :key="item.title" link>
-        <v-list-item-icon>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-icon>
+      <v-list-item :to="item.endpoint" v-for="item in items" :key="item.id" link>
 
         <v-list-item-content>
-          <v-list-item-title >{{ item.title }}</v-list-item-title>
+          <v-list-item-title >{{ item.nome }}</v-list-item-title>
         </v-list-item-content>
+
       </v-list-item>
       <template v-if="logged">
         <hr>
-        <v-list-item :to="item.endpoint" v-for="item in items_logged" :key="item.title" link>
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
+        <v-list-item :to="item.endpoint" v-for="item in items_logged" :key="item.id" link>
 
           <v-list-item-content>
-            <v-list-item-title >{{ item.title }}</v-list-item-title>
+            <v-list-item-title >{{ item.nome }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </template>
@@ -34,6 +29,7 @@
 </template>
 
 <script>
+import axios from "axios"
 export default {
   name: "SideMenu",
   data() {
@@ -42,20 +38,13 @@ export default {
      // mini: false,
       user: {},
       items: [        
-        { title: "Home", icon: "mdi-store", endpoint: '/' },
-        { title: "Área externa", icon: "mdi-grill-outline", endpoint: '/experiments'},
-        { title: "Banheiro", icon: "mdi-shower", endpoint: '/user' },
-        { title: "Cozinha", icon: "mdi-table-chair", endpoint: '/users' },
-        { title: "Quarto", icon: "mdi-hotel", endpoint: '/books'},
-        { title: "Sala", icon: "mdi-sofa", endpoint: '/experiments'},
       ],
-      items_logged: [
-        { title: "Logout", icon: "mdi-logout", endpoint: '/logout'}
-      ]
     };
   },
+
   created () {
-    this.getUserDetails()
+    this.getUserDetails(),
+    this.getCategorias()
   },
   methods: {
     getUserDetails() {
@@ -66,6 +55,18 @@ export default {
         this.user.name = 'None2'
       }
     },
+    getCategorias() {
+        axios
+        .request({
+          baseURL: "http://localhost:8000",
+          method: "get",
+          url: "/loja/categorias/"
+        })
+        .then(response => {
+          this.items = response.data
+          //console.log(response)
+        });
+      },
   },
   computed: {
     logged() {
