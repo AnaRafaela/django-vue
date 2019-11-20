@@ -1,58 +1,60 @@
 <template>
   <div>
-    <v-container class="grey lighten-5">
+    <v-container class="black">
+      <div class="d-block pa-2 black">
       <v-carousel cycle :show-arrows="false">
-        <v-carousel-item
-          v-for="(item,i) in items"
-          :key="i"
-          :src="item.src"
-        ></v-carousel-item>
+        <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src"></v-carousel-item>
       </v-carousel>
-
       <h1 class="text-center">Loja Casa Bonita</h1>
-
+</div>
       <v-row no-gutters justify="center">
         <div v-for="produto in produtos" v-bind:key="produto.id">
-          
-        <v-col>   
-          <v-card max-width="300" max-height="350" :elevation="n - 10">
-            <v-img
-              height="150px"
-              width="300px"
-              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-            ></v-img>
-            <v-item>
-              {{produto.foto}}
-            </v-item>
-            <v-card-title>
-              {{produto.nome}}
-              </v-card-title>
+          <v-col>
+            <v-card max-width="300" max-height="350" :elevation="n - 10">
+              <v-img
+                height="150px"
+                width="300px"
+                src="../assets/foto/cama.jpeg"
+              >
+                <v-tooltip top>
+                  <template v-slot:activator="{ on }">
+                    <v-btn color="#00695C" dark v-on="on">
+                      <v-icon dark>mdi-cart-arrow-down</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Adicionar ao carrinho e continuar comprando</span>
+                </v-tooltip>
+                {{produto.foto}}
+              </v-img>
+              <v-card-title>{{produto.nome}}</v-card-title>
               <v-card-subtitle>
                 <div class="text-justify">{{produto.descricao}}</div>
               </v-card-subtitle>
 
-            <v-card-text class="text--primary">
-
-              <div class="text-justify font-weight-black" style="font-size: 20px">
-                R$ {{produto.preco}}
-                </div>
-            </v-card-text>
-
-            <v-card-actions>
-              
-    <v-btn block color="#00695C" dark>Comprar</v-btn>
-  
-            </v-card-actions>
-          </v-card>
-        </v-col>
+              <v-card-text class="text--primary">
+                <div
+                  class="text-justify font-weight-black"
+                  style="font-size: 20px"
+                >R$ {{produto.preco}}</div>
+              </v-card-text>
+              <v-tooltip top>
+                <template v-slot:activator="{ on }">
+                  <v-btn color="#00695C" dark v-on="on">
+                    <v-card-actions>Comprar</v-card-actions>
+                  </v-btn>
+                </template>
+                <span>Efetuar a compra</span>
+              </v-tooltip>
+            </v-card>
+          </v-col>
         </div>
       </v-row>
     </v-container>
-  </div>
+    </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   name: "Index",
   data() {
@@ -60,7 +62,7 @@ export default {
       produtos: [],
       items: [
         {
-          src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg"
+          src: require("@/assets/foto/cama.jpeg")
         },
         {
           src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg"
@@ -75,29 +77,22 @@ export default {
     };
   },
   created() {
-    this.getCategorias(),
-        this.all();
-        },
-  methods: {
-  all () {
-   axios.request({
-    baseURL: 'http://localhost:8000',
-    method: 'get',
-    url: '/loja/produtos/'
-   }).then( response => {
-     this.produtos = response.data
-   });
+    this.all();
   },
-  getCategorias() {
-        axios
+  methods: {
+    all() {
+      axios
         .request({
           baseURL: "http://localhost:8000",
           method: "get",
-          url: "/loja/categorias/"
+          url: "/loja/produtos/"
         })
-      },
-}
-}
+        .then(response => {
+          this.produtos = response.data;
+        });
+    },
+  }
+};
 </script>
 <style>
 </style>

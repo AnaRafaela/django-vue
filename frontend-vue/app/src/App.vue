@@ -2,9 +2,11 @@
   <v-app id="app">
     <Navigation @toggle-drawer="$refs.drawer.drawer = !$refs.drawer.drawer"></Navigation>
     <SideMenu ref="drawer"></SideMenu>
+    <div class="d-block pa-2 black">
     <v-content>
       <router-view></router-view>
     </v-content>
+    </div>
     <Footer @toggle-drawer="$refs.drawer.drawer = !$refs.drawer.drawer"></Footer>
   </v-app>
 </template>

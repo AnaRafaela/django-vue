@@ -1,5 +1,5 @@
 <template>
-<v-app-bar app :clipped-left="$vuetify.breakpoint.lgAndUp" color="purple darken-4" dark>
+<v-app-bar app :clipped-left="$vuetify.breakpoint.lgAndUp" color="black" dark>
     <v-app-bar-nav-icon 
       @click.stop="$emit('toggle-drawer')"
     > </v-app-bar-nav-icon>
@@ -7,6 +7,7 @@
     <v-spacer></v-spacer>
  <div>
     <nav-item>
+      
       <router-link class="spacing" v-for="routes in links" 
       v-bind:key="routes.id"
       :to="`${routes.page}`">
