@@ -11,8 +11,8 @@
     <v-spacer></v-spacer>
  <div>
     <nav-item>
-      <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn v-for="routes in links" 
+      <v-toolbar-items>
+      <v-btn text v-for="routes in links" 
       v-bind:key="routes.id"
       :to="`${routes.page}`">
       <v-btn text>
