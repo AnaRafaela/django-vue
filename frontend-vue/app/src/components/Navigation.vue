@@ -3,19 +3,25 @@
     <v-app-bar-nav-icon 
       @click.stop="$emit('toggle-drawer')"
     > </v-app-bar-nav-icon>
-    <v-toolbar-title>Casa Bonita</v-toolbar-title>
+    <v-toolbar-title >
+      <v-btn text large href="/">
+      Casa Bonita
+      </v-btn>
+      </v-toolbar-title>
     <v-spacer></v-spacer>
  <div>
     <nav-item>
-      
-      <router-link class="spacing" v-for="routes in links" 
+      <v-toolbar-items class="hidden-sm-and-down">
+      <v-btn v-for="routes in links" 
       v-bind:key="routes.id"
       :to="`${routes.page}`">
+      <v-btn text>
       {{routes.text}}
-      <v-list-item-icon>
-            <v-icon>{{ routes.icon }}</v-icon>
-        </v-list-item-icon>
-      </router-link>
+      <v-icon>{{ routes.icon }}</v-icon>
+      </v-btn>
+    
+      </v-btn>
+      </v-toolbar-items>
     </nav-item>
   </div>
   </v-app-bar>
@@ -41,8 +47,9 @@ export default {
         },
         {
           id: 1,
-          text: 'Contact',
-          page:'/Contact',
+          icon:'mdi-account-outline',
+          text: 'Minha Conta',
+          page:'/Login',
         },
         {
           id: 2,

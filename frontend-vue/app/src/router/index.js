@@ -2,13 +2,19 @@ import Vue from 'vue'
 import Router from 'vue-router'
  
 import Index from '@/components/Index'
-import Contact from '@/components/Contact'
+import Contact from '@/components/Register'
 import About from '@/components/ShopCart'
 import Categoria from '@/components/Categoria'
+import Login from '@/views/Login'
+import Logout from '@/views/Logout'
+import Pay from '@/components/Pay'
+
  
 Vue.use(Router)
  
 export default new Router({
+  mode:'history',
+  hash: false,
  routes: [
    {
      path: '/',
@@ -16,8 +22,8 @@ export default new Router({
      component: Index
    },
    {
-       path: '/Contact',
-       name: 'Contact',
+       path: '/Register',
+       name: 'Register',
        component: Contact
    },
    {
@@ -29,6 +35,21 @@ export default new Router({
     path: '/Categoria',
     name: 'Categoria',
     component: Categoria
+  },
+  {
+    path: '/Pay',
+    name: 'Pay',
+    component: Pay
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/Logout',
+    name: 'Logout',
+    component: Logout
   },
   ]
 })

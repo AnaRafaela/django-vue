@@ -6,16 +6,10 @@
       </v-carousel>
       <h1 class="text-center">Loja Casa Bonita</h1>
 </div>
-<v-container class="black">
       <v-row no-gutters justify="center">
         <div v-for="produto in produtos" v-bind:key="produto.id">
           <v-col>
             <v-card max-width="300" max-height="350" :elevation="n - 10">
-              <v-img
-                height="150px"
-                width="300px"
-                :src="produto.foto"
-              >
                <v-row
                align="center" 
                justify="end">
@@ -28,7 +22,11 @@
                   <span>Adicionar ao carrinho e continuar comprando</span>
                 </v-tooltip>
                </v-row>
-                {{produto.foto.url}}
+              <v-img
+                height="150px"
+                width="300px"
+                :src="produto.foto"
+              >
               </v-img>
               <v-card-title>{{produto.nome}}</v-card-title>
               <v-card-subtitle>
@@ -47,13 +45,12 @@
                     <v-card-actions>Comprar</v-card-actions>
                   </v-btn>
                 </template>
-                <span>Efetuar a compra</span>
+                <span>Comprar e ir para carrinho de compras</span>
               </v-tooltip>
             </v-card>
           </v-col>
         </div>
       </v-row>
-      </v-container>
     </div>
 </template>
 
@@ -66,10 +63,10 @@ export default {
       produtos: [],
       items: [
         {
-          src: require("@/assets/foto/cama.jpeg")
+          src: require("@/assets/foto/logoCasa.jpg")
         },
         {
-          src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg"
+          src: require("@/assets/foto/cama.jpeg")
         },
         {
           src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg"

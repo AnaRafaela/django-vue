@@ -24,9 +24,9 @@
             <th class="text-center">Total</th>
             <td>valor</td>
             <td>
-              <v-tooltip top>
+              <v-tooltip right>
                 <template v-slot:activator="{ on }">
-                  <v-btn v-on="on">
+                  <v-btn text v-on="on">
                     <v-icon color="red darken-4">mdi-cart-remove</v-icon>
                   </v-btn>
                 </template>
@@ -36,6 +36,13 @@
           </tfoot>
         </template>
       </v-simple-table>
+      <div class="my-2">
+            <v-btn 
+            x-large color="success" 
+            dark
+            href="/Pay">
+              Finalizar a compra</v-btn>
+        </div>
     </div>
   </v-container>
 </template>
