@@ -7,3 +7,4 @@ class ProdutoList(generics.ListAPIView):
     queryset = Produto.objects.all()
     serializer_class = ProdutoSerializer
     permission_classes = ()
+
