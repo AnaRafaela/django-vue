@@ -7,3 +7,8 @@ class CategoriaList(generics.ListAPIView):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
     permission_classes = ()
+
+class CategoriaGet(generics.RetrieveAPIView):
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer
+    permission_classes = ()
