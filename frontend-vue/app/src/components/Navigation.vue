@@ -40,17 +40,12 @@ export default {
       links: [
         {
           id: 0,
-          text: 'Categoria',
-          page:'/Categoria'
-        },
-        {
-          id: 1,
           icon:'mdi-account-outline',
           text: 'Minha Conta',
           page:'/Login',
         },
         {
-          id: 2,
+          id: 1,
           icon:'mdi-cart-outline',
           text: 'Carrinho',
           page:'/ShopCart'

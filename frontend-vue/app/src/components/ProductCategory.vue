@@ -18,12 +18,14 @@
                     Adicionar ao carrinho e continuar comprando</span>
                 </v-tooltip>
                </v-row>
+               <a v-bind:href="'/Detail/'+produto.id">
               <v-img
                 height="150px"
                 width="300px"
                 :src="produto.foto"
               >
               </v-img>
+               </a>
               <v-card-title>{{produto.nome}}</v-card-title>
               <v-card-subtitle>
                 <div class="text-justify">{{produto.descricao}}</div>

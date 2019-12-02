@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import Index from '@/components/Index'
 import Contact from '@/components/Register'
 import About from '@/components/ShopCart'
-import Categoria from '@/components/Categoria'
+import Detail from '@/components/Detail'
 import Login from '@/views/Login'
 import Logout from '@/views/Logout'
 import Pay from '@/components/Pay'
@@ -33,9 +33,9 @@ export default new Router({
        component: About
    },
    {
-    path: '/Categoria',
-    name: 'Categoria',
-    component: Categoria
+    path: '/Detail/:id',
+    name: 'Detail',
+    component: Detail
   },
   {
     path: '/Pay',
