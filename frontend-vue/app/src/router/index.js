@@ -8,6 +8,7 @@ import Categoria from '@/components/Categoria'
 import Login from '@/views/Login'
 import Logout from '@/views/Logout'
 import Pay from '@/components/Pay'
+import ProductCategory from '@/components/ProductCategory'
 
  
 Vue.use(Router)
@@ -50,6 +51,11 @@ export default new Router({
     path: '/Logout',
     name: 'Logout',
     component: Logout
+  },
+  {
+    path: '/ProductCategory/:id',
+    name: 'ProductCategory',
+    component: ProductCategory
   },
   ]
 })

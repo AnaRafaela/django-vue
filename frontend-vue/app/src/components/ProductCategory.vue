@@ -1,14 +1,8 @@
 <template>
 <v-container>
-  <div>
-      <div class="d-block pa-2 black">
-      <v-carousel cycle :show-arrows="false">
-        <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src"></v-carousel-item>
-      </v-carousel>
-      <h1 class="text-center">Loja Casa Bonita</h1>
-</div>
+<h1 class="text-center">Loja Casa Bonita</h1>
       <v-row no-gutters justify="center">
-        <div v-for="produto in produtos" v-bind:key="produto.id">
+        <div v-for="produto in produtos" v-bind:key="produto.categoria">
           <v-col>
             <v-card max-width="300" max-height="350" :elevation="n - 10">
                <v-row
@@ -53,18 +47,15 @@
           </v-col>
         </div>
       </v-row>
-    </div>
 </v-container>
 </template>
-
 <script>
 import axios from "axios";
-
 export default {
   name: "Index",
   data() {
     return {
-      produtos: [],
+      produtos: {},
       items: [
         {
           src: require("@/assets/foto/logoCasa.jpg")
@@ -90,14 +81,13 @@ export default {
         .request({
           baseURL: "http://localhost:8000",
           method: "get",
-          url: "/loja/produtos/"
+          url: `/loja/produtos/get/${this.$route.params.id}/`
         })
         .then(response => {
           this.produtos = response.data;
+          //console.log(response)
         });
     },
     }
 };
 </script>
-<style>
-</style>

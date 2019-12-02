@@ -9,21 +9,12 @@
 
     <v-list dense>
       <v-list-item :to="item.endpoint" v-for="item in items" :key="item.id" link>
-
         <v-list-item-content>
-          <v-list-item-title >{{ item.nome }}</v-list-item-title>
-        </v-list-item-content>
-
-      </v-list-item>
-      <template v-if="logged">
-        <hr>
-        <v-list-item :to="item.endpoint" v-for="item in items_logged" :key="item.id" link>
-
-          <v-list-item-content>
+          <a v-bind:href="'/ProductCategory/'+item.id">
             <v-list-item-title >{{ item.nome }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </template>
+          </a>
+        </v-list-item-content>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -35,7 +26,7 @@ export default {
   data() {
     return {
       drawer: true,
-     // mini: false,
+     mini: false,
       user: {},
       items: [        
       ],

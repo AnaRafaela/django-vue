@@ -10,7 +10,6 @@
       </v-toolbar-title>
     <v-spacer></v-spacer>
  <div>
-    <nav-item>
       <v-toolbar-items>
       <v-btn text v-for="routes in links" 
       v-bind:key="routes.id"
@@ -18,11 +17,10 @@
       <v-btn text>
       {{routes.text}}
       <v-icon>{{ routes.icon }}</v-icon>
-      </v-btn>
-    
+      </v-btn> 
       </v-btn>
       </v-toolbar-items>
-    </nav-item>
+   
   </div>
   </v-app-bar>
 </template>

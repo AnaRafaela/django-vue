@@ -7,6 +7,7 @@
           <thead>
             <tr>
               <th class="text-center">Produto</th>
+              <th class="text-center">Quantidade</th>
               <th class="text-center">Preço</th>
               <th class="text-center">Retirar do carrinho</th>
             </tr>
@@ -14,6 +15,7 @@
           <tbody>
             <tr v-for="item in desserts" :key="item.name">
               <td>{{ item.name }}</td>
+              <td>1</td>
               <td>{{ item.calories }}</td>
               <td>
                 <v-icon color="red">mdi-cart-arrow-up</v-icon>
@@ -22,6 +24,7 @@
           </tbody>
           <tfoot>
             <th class="text-center">Total</th>
+            <td>v</td>
             <td>valor</td>
             <td>
               <v-tooltip right>
